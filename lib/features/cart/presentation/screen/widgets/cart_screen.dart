@@ -12,7 +12,8 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Scaffold(
+    body: SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 30),
         child: Column(
@@ -48,6 +49,6 @@ class CartScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ),);
   }
 }
