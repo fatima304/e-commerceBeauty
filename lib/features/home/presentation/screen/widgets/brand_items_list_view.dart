@@ -17,7 +17,7 @@ class BrandItemsListView extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return SizedBox(
-          height: 25.h,
+          height: 40.h,
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: homeCubit.brandNames.length,
@@ -37,9 +37,9 @@ class BrandItemsListView extends StatelessWidget {
                         : Colors.white,
                     textStyle: homeCubit.currentIndex != index
                         ? AppTextStyle.font14PinkSemiBold.copyWith(
-                        fontFamily: FontFamilyHelper.leagueSpartanFont)
+                            fontFamily: FontFamilyHelper.leagueSpartanFont)
                         : AppTextStyle.font14WhiteSemiBold.copyWith(
-                        fontFamily: FontFamilyHelper.leagueSpartanFont),
+                            fontFamily: FontFamilyHelper.leagueSpartanFont),
                   ),
                 );
               }),

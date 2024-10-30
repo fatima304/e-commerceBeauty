@@ -14,43 +14,56 @@ class PaymentsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             PaymentTopBar(),
-             SizedBox(
+            SizedBox(
               height: 30.h,
             ),
-             Text(
-              'Delivery Address',
-              style: AppTextStyle.font22BlackBold
+            Text('Delivery Address', style: AppTextStyle.font22BlackSemiBold),
+            SharedListTile(
+              leading: Icon(
+                size: 30,
+                Icons.location_on,
+                color: Colors.black,
+              ),
+              title: '22A Vrindhavan, Nanma Lane',
+              subTitle: 'Kochi, Kerala',
+              trialing: Icons.arrow_forward_ios_outlined,
             ),
-             SizedBox(
+            SizedBox(
               height: 20.h,
             ),
-            const Column(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text('Payment Method', style: AppTextStyle.font22BlackSemiBold),
                 SharedListTile(
-                  leading: Icons.apple_outlined,
+                  leading: Icon(
+                    size: 30,
+                    Icons.apple_outlined,
+                    color: Colors.black,
+                  ),
                   title: 'Apple Pay',
                   subTitle: '**** **** 0465 7538',
                   trialing: Icons.check_box_outlined,
                 ),
                 SharedListTile(
-                  leading: Icons.payment,
+                  leading: Image.asset('assets/images/MasterCard.png'),
                   title: 'Master Card',
                   subTitle: '**** **** 0345 89678',
                   trialing: Icons.check_box_outline_blank_rounded,
                 ),
                 SharedListTile(
-                  leading: Icons.paypal,
+                  leading: Image.asset('assets/images/PayPal.png'),
                   title: 'Paypal',
                   subTitle: '**** **** 0388 8321',
                   trialing: Icons.check_box_outline_blank_rounded,
                 ),
                 SharedListTile(
-                  leading: Icons.money,
+                  leading: Image.asset('assets/images/Cash.png'),
                   title: 'Cash on delivery',
                   subTitle: '90.99',
                   trialing: Icons.check_box_outline_blank_rounded,
@@ -58,26 +71,25 @@ class PaymentsBody extends StatelessWidget {
               ],
             ),
             Spacer(),
-             Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: [
-                 Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
                   children: [
-                    Text(
-                      'Total',
-                      style: AppTextStyle.font24PinkBold
-                    ),
-                    Text(
-                      '\$90.99',
-                      style: AppTextStyle.font18BlackMedium
-                    ),
+                    Text('Total', style: AppTextStyle.font24PinkBold),
+                    Text('\$90.99', style: AppTextStyle.font18BlackMedium),
                   ],
-                             ),
-                             CustomElevatedButton(onPressed: () {
-                               Navigator.of(context).pushReplacementNamed(Routes.orderSuccessfulScreen);
-                             }, buttonText: 'Place Order',),
-               ],
-             ),
+                ),
+                CustomElevatedButton(
+                  width: 250,
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(Routes.orderSuccessfulScreen);
+                  },
+                  buttonText: 'Place Order',
+                ),
+              ],
+            ),
           ],
         ),
       ),

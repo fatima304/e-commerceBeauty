@@ -1,4 +1,4 @@
-
+import 'package:beauty_ecommerce/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
 class SharedListTile extends StatelessWidget {
@@ -12,7 +12,7 @@ class SharedListTile extends StatelessWidget {
 
   final String title;
   final String subTitle;
-  final IconData leading;
+  final Widget leading;
   final IconData trialing;
 
   @override
@@ -22,15 +22,14 @@ class SharedListTile extends StatelessWidget {
         width: 50,
         height: 50,
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 203, 202, 202),
+          color: AppColor.lightGrey,
           borderRadius: BorderRadius.all(
             Radius.circular(13),
           ),
         ),
-        child: Icon(
+        child:
           leading,
-          size: 35,
-        ),
+        
       ),
       title: Text(
         title,

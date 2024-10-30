@@ -28,7 +28,7 @@ class BrandItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 25,
+        height: 40,
         padding: EdgeInsets.symmetric(
           horizontal: 14.w,
         ),

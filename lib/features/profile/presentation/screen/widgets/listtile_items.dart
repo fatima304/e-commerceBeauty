@@ -24,7 +24,7 @@ Widget buildProfileHeader(bool isDarkTheme) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              "User ",
+              'Fatma Atef',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
             ),
           ],
@@ -91,7 +91,7 @@ Widget buildProfileSettingsTile(bool isDarkTheme, BuildContext context) {
       color: isDarkTheme ? Colors.white : Colors.black,
     ),
     onTap: () {
-     // Navigator.pushNamed(context, AppRoutes.profile);
+      // Navigator.pushNamed(context, AppRoutes.profile);
     },
   );
 }
@@ -153,27 +153,25 @@ Widget buildPushNotificationsTile(bool isDarkTheme) {
 }
 
 Widget buildLogoutTile(bool isDarkTheme) {
-  return
-    ListTile(
-      leading: const Image(
-        width: 40,
-        height: 40,
-        image: AssetImage(
-          'assets/images/logout.png',
-        ),
+  return ListTile(
+    leading: const Image(
+      width: 40,
+      height: 40,
+      image: AssetImage(
+        'assets/images/logout.png',
       ),
-      trailing: Icon(
-        Icons.logout_rounded,
+    ),
+    trailing: Icon(
+      Icons.logout_rounded,
+      color: isDarkTheme ? Colors.white : Colors.black,
+    ),
+    title: Text(
+      "Logout",
+      style: TextStyle(
         color: isDarkTheme ? Colors.white : Colors.black,
+        fontWeight: FontWeight.bold,
       ),
-      title: Text(
-        "Logout",
-        style: TextStyle(
-          color: isDarkTheme ? Colors.white : Colors.black,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      onTap: ()async {
-      },
-    );
+    ),
+    onTap: () async {},
+  );
 }

@@ -9,7 +9,8 @@ class CustomElevatedButton extends StatelessWidget {
     required this.onPressed,
     required this.buttonText,
     this.width,
-    this.height, this.padding,
+    this.height,
+    this.padding,
   });
 
   final String buttonText;
@@ -28,7 +29,7 @@ class CustomElevatedButton extends StatelessWidget {
         backgroundColor: AppColor.darkPink,
         padding:
             padding ?? EdgeInsets.symmetric(horizontal: 44.w, vertical: 17.5.h),
-        minimumSize: Size(width ?? 300, height ?? 50),
+        minimumSize: Size(width ?? 200, height ?? 40),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(46),
         ),

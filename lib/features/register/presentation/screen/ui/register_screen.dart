@@ -1,3 +1,4 @@
+import 'package:beauty_ecommerce/core/routes/routes.dart';
 import 'package:beauty_ecommerce/features/login/presentation/screen/widgets/auth_widget.dart';
 import 'package:beauty_ecommerce/features/login/presentation/screen/widgets/custom_container.dart';
 import 'package:beauty_ecommerce/features/register/presentation/screen/widgets/register_textfield.dart';
@@ -12,12 +13,13 @@ class RegisterScreen extends StatelessWidget {
       body: AuthWidget(
         authBody: CustomContainer(
           onPressed: () {
-            
+            Navigator.pushNamed(context, Routes.homeScreen);
           },
           welText: 'Register',
           buttonText: 'Sign Up',
           accountText: 'Create an account',
-          createAccount: 'Already have an account? Login', authField:  RegisterTextfield(),
+          createAccount: 'Already have an account? Login',
+          authField: RegisterTextfield(),
         ),
       ),
     );

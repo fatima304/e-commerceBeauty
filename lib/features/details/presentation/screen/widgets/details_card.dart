@@ -9,10 +9,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/routes/routes.dart';
 
-
 class DetailsCard extends StatelessWidget {
   const DetailsCard({
-    super.key, required this.beautyProductModelResponse,
+    super.key,
+    required this.beautyProductModelResponse,
   });
 
   final BeautyProductModelResponse beautyProductModelResponse;
@@ -21,7 +21,7 @@ class DetailsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.45,
+      height: MediaQuery.of(context).size.height * 0.5,
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
       decoration: BoxDecoration(
         color: AppColor.cherryBlossomPink,
@@ -32,9 +32,13 @@ class DetailsCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProductDetails(beautyProductModelResponse: beautyProductModelResponse,),
+            ProductDetails(
+              beautyProductModelResponse: beautyProductModelResponse,
+            ),
             SizedBox(height: 25.h),
-            ColorPalette(beautyProductModelResponse: beautyProductModelResponse,),
+            ColorPalette(
+              beautyProductModelResponse: beautyProductModelResponse,
+            ),
             SizedBox(height: 30.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,23 +46,18 @@ class DetailsCard extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Price",
-                      style: AppTextStyle.font16DarkGreySemiBold
-                    ),
-                    Text(
-                      "\$ ${beautyProductModelResponse.price}",
-                      style: AppTextStyle.font22BlackSemiBold
-                    ),
+                    Text("Price", style: AppTextStyle.font16DarkGreySemiBold),
+                    Text("\$ ${beautyProductModelResponse.price}",
+                        style: AppTextStyle.font22BlackSemiBold),
                   ],
                 ),
                 CustomElevatedButton(
-                    onPressed: (){
-                      Navigator.of(context).pushNamed(Routes.cartBody);
-                    },
-                    width: 0.w,
-                    height: 0.h,
-                    buttonText: 'Add To Cart'
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(Routes.cartBody);
+                  },
+                  width: 0.w,
+                  height: 0.h,
+                  buttonText: 'Add To Cart',
                 ),
               ],
             ),

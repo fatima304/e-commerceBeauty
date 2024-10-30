@@ -14,39 +14,32 @@ class ProductDetails extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-            beautyProductModelResponse.name.trim() // Remove leading and trailing spaces
+            beautyProductModelResponse.name
+                .trim() // Remove leading and trailing spaces
                 .replaceAll(RegExp(r'\s+'), ' '),
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
             softWrap: false,
-          style: AppTextStyle.font22BlackBold.copyWith(
-            fontFamily: FontFamilyHelper.sourceSerifFont
-          )
-        ),
+            style: AppTextStyle.font22BlackSemiBold.copyWith(
+              fontFamily: FontFamilyHelper.sourceSerifFont,
+            )),
         SizedBox(height: 15),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              beautyProductModelResponse.brand,
-              style: AppTextStyle.font18BlackMedium.copyWith(
-                fontFamily: FontFamilyHelper.poppinsFont
-              )
-            ),
-            Text(
-              beautyProductModelResponse.productType ?? 'Undefined',
-              style: AppTextStyle.font18PinkSemiBold
-            ),
+            Text(beautyProductModelResponse.brand,
+                style: AppTextStyle.font18BlackMedium
+                    .copyWith(fontFamily: FontFamilyHelper.poppinsFont)),
+            Text(beautyProductModelResponse.productType ?? 'Undefined',
+                style: AppTextStyle.font18PinkSemiBold),
           ],
         ),
         SizedBox(height: 15.h),
-        Text(
-          beautyProductModelResponse.description ?? 'No details',
+        Text(beautyProductModelResponse.description ?? 'No details',
             overflow: TextOverflow.ellipsis,
             maxLines: 5,
             softWrap: false,
-          style: AppTextStyle.font14BlackRegular
-        ),
+            style: AppTextStyle.font14BlackRegular),
       ],
     );
   }

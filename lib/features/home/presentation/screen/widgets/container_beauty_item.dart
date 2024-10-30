@@ -42,7 +42,6 @@ class ContainerBeautyItem extends StatelessWidget {
                 width: 150.w,
                 height: 120.h,
                 errorBuilder: (context, error, stackTrace) {
-                  // Display a default image in case of an error
                   return Image.network(
                     AppImages.makeupFake,
                     width: 150.w,
@@ -61,6 +60,7 @@ class ContainerBeautyItem extends StatelessWidget {
               softWrap: false,
               style: AppTextStyle.font22BlackSemiBold.copyWith(
                 fontFamily: FontFamilyHelper.leagueSpartanFont,
+                fontSize: 20,
               ),
             ),
             Text(
@@ -81,8 +81,10 @@ class ContainerBeautyItem extends StatelessWidget {
                         arguments: beautyProductModel);
                   },
                   child: Container(
+                    width: 130,
+                    height: 45,
                     padding:
-                    EdgeInsets.symmetric(horizontal: 9.w, vertical: 5.h),
+                        EdgeInsets.symmetric(horizontal: 9.w, vertical: 5.h),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: AppColor.mainPink,
@@ -103,7 +105,7 @@ class ContainerBeautyItem extends StatelessWidget {
                   child: CircleAvatar(
                     backgroundColor: AppColor.cherryBlossomPink,
                     child: Icon(
-                       isFav ? Icons.favorite : Icons.favorite_border,
+                      isFav ? Icons.favorite : Icons.favorite_border,
                       size: 30,
                       color: isFav ? Colors.red : Colors.black,
                     ),

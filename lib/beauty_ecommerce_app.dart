@@ -6,17 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class BeautyEcommerceApp extends StatelessWidget {
   const BeautyEcommerceApp({super.key, required this.appRouting});
 
-  final AppRouting appRouting ;
+  final AppRouting appRouting;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(390, 844),
       minTextAdapt: true,
-        child:  MaterialApp(
-          debugShowCheckedModeBanner: false ,
-          onGenerateRoute: appRouting.generateRoute,
-          initialRoute: Routes.homeScreen,
-        ),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: appRouting.generateRoute,
+        initialRoute: Routes.splashScreen,
+      ),
     );
   }
 }

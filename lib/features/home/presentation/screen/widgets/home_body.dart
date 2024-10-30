@@ -25,8 +25,8 @@ class HomeBody extends StatelessWidget {
             Center(
               child: Image.asset(
                 AppImages.beautyLogo,
-                width: 100.w,
-                height: 100.h,
+                width: 80.w,
+                height: 80.h,
               ),
             ),
             Text(

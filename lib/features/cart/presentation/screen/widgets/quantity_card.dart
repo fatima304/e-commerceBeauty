@@ -1,6 +1,5 @@
+import 'package:beauty_ecommerce/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
-
-
 
 class QuantityCard extends StatelessWidget {
   const QuantityCard({
@@ -20,7 +19,7 @@ class QuantityCard extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
         shape: BoxShape.rectangle,
-        color: Colors.grey,
+        color: AppColor.lightGrey,
         borderRadius: BorderRadius.all(
           Radius.circular(5),
         ),
