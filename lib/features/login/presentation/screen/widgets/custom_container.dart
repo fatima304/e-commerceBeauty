@@ -2,6 +2,7 @@ import 'package:beauty_ecommerce/core/theme/app_color.dart';
 import 'package:beauty_ecommerce/core/theme/font_family_helper.dart';
 import 'package:beauty_ecommerce/core/theme/font_weight_helper.dart';
 import 'package:beauty_ecommerce/core/widgets/custom_elevated_button.dart';
+import 'package:beauty_ecommerce/features/register/presentation/screen/ui/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainer extends StatelessWidget {
@@ -62,6 +63,22 @@ class CustomContainer extends StatelessWidget {
                 color: AppColor.darkGrey,
                 fontWeight: FontWeightHelper.regular,
                 fontFamily: FontFamilyHelper.dongleFont,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return RegisterScreen();
+                }));
+              },
+              child: Text(
+                'createAccount',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: AppColor.darkGrey,
+                  fontWeight: FontWeightHelper.regular,
+                  fontFamily: FontFamilyHelper.dongleFont,
+                ),
               ),
             ),
           ],
