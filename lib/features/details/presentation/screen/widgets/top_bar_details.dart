@@ -13,7 +13,7 @@ class TopBarDetails extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.of(context).pop(true);
           },
           child: Container(
             width: 37.w,

@@ -1,19 +1,18 @@
 import 'package:beauty_ecommerce/core/routes/routes.dart';
+import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/cart_list_view_bloc_builder.dart';
 import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/cart_top_bar.dart';
 import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/price_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/custom_elevated_button.dart';
-import 'cart_listview.dart';
 
-class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+class CartBody extends StatelessWidget {
+  const CartBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    body: SafeArea(
+    return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 30),
         child: Column(
@@ -24,7 +23,7 @@ class CartScreen extends StatelessWidget {
               height: 20.h,
             ),
             const Expanded(
-              child: CartListview(),
+              child: CartListViewBlocBuilder(),
             ),
             const PriceWidget(text: 'Sub Total', price: '\$ 80.99'),
             const PriceWidget(text: 'Shipping', price: '\$ 10.00'),
@@ -41,14 +40,14 @@ class CartScreen extends StatelessWidget {
             ),
             Center(
                 child: CustomElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacementNamed(Routes.paymentScreen);
-              },
-              buttonText: 'Checkout',
-            )),
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed(Routes.paymentScreen);
+                  },
+                  buttonText: 'Checkout',
+                )),
           ],
         ),
       ),
-    ),);
+    );
   }
 }

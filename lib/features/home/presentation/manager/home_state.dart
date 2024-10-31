@@ -21,4 +21,14 @@ class HomeChangeFavourite extends HomeState {
 
   HomeChangeFavourite({required this.beautyList});
 }
+class HomeCartProductSuccess extends HomeState {
+  final List<BeautyProductModelResponse> cartProductList ;
 
+  HomeCartProductSuccess({required this.cartProductList});
+}
+
+class HomeCartProductFailed extends HomeState {
+  final String error ;
+
+  HomeCartProductFailed({required this.error});
+}

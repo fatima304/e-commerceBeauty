@@ -1,8 +1,8 @@
-import 'package:beauty_ecommerce/core/helper/app_images.dart';
 import 'package:beauty_ecommerce/core/routes/routes.dart';
 import 'package:beauty_ecommerce/core/theme/app_color.dart';
 import 'package:beauty_ecommerce/core/theme/app_text_style.dart';
 import 'package:beauty_ecommerce/core/theme/font_family_helper.dart';
+import 'package:beauty_ecommerce/core/widgets/custom_image_network.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
 import 'package:flutter/material.dart';
@@ -37,19 +37,8 @@ class ContainerBeautyItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Image.network(
-                beautyProductModel.imageLink ?? AppImages.makeupFake,
-                width: 150.w,
-                height: 120.h,
-                errorBuilder: (context, error, stackTrace) {
-                  return Image.network(
-                    AppImages.makeupFake,
-                    width: 150.w,
-                    height: 120.h,
-                  );
-                },
+              child: CustomImageNetwork(imagePath: beautyProductModel.imageLink)
               ),
-            ),
             Spacer(),
             Text(
               beautyProductModel.name

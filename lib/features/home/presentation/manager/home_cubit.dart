@@ -1,4 +1,3 @@
-import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/cart_screen.dart';
 import 'package:beauty_ecommerce/features/favourite/presentation/screen/widgets/favourite_body.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/data/repo/home_repo.dart';
@@ -7,6 +6,7 @@ import 'package:beauty_ecommerce/features/profile/presentation/screen/ui/profile
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../cart/presentation/screen/ui/cart_screen.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -80,7 +80,10 @@ CartScreen(),
     screenIndex = index;
     if (index == 0) {
       getProductByBrand(brandNames[currentIndex]);
+    } else if (index == 1) {
+      emit(HomeCartProductSuccess(cartProductList: cartProducts));
     }
+
     emit(HomeChangeScreenIndex());
   }
 
@@ -96,6 +99,23 @@ CartScreen(),
      favProduct.remove(product);
    }
     emit(HomeBeautyProductSuccess(beautyProductList: beautyProduct));
+
+  }
+
+  /// add item from details in cart screen
+  List<BeautyProductModelResponse> cartProducts =[] ;
+  void addToCart(BeautyProductModelResponse product){
+    emit(HomeBeautyProductLoading());
+    try {
+      if(!cartProducts.contains(product)){
+        cartProducts.add(product);
+      }else{
+        cartProducts.remove(product);
+      }
+      emit(HomeCartProductSuccess(cartProductList: cartProducts));
+    }catch (error) {
+      emit(HomeCartProductFailed(error: error.toString()));
+    }
 
   }
 

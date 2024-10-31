@@ -1,5 +1,5 @@
 import 'package:beauty_ecommerce/core/di/dependency_injection.dart';
-import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/cart_screen.dart';
+import 'package:beauty_ecommerce/features/cart/presentation/screen/ui/cart_screen.dart';
 import 'package:beauty_ecommerce/features/favourite/presentation/screen/widgets/favourite_body.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
@@ -54,19 +54,25 @@ class AppRouting {
         return MaterialPageRoute(
           builder: (_) => HomeBody(),
         );
-        case Routes.cartBody:
+      case Routes.cartBody:
         return MaterialPageRoute(
-          builder: (_) => CartScreen(),
+          builder: (context) => BlocProvider.value(
+            value: getIt<HomeCubit>(),
+            child: CartScreen(),
+          ),
         );
-        case Routes.favouriteBody:
+      case Routes.favouriteBody:
         return MaterialPageRoute(
           builder: (_) => FavouriteBody(),
         );
       case Routes.detailsScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<HomeCubit>(),
-            child: DetailsScreen(beautyProductModelResponse: arguments as BeautyProductModelResponse,),
+          builder: (_) => BlocProvider.value(
+            value:getIt<HomeCubit>() ,
+            child: DetailsScreen(
+              beautyProductModelResponse:
+                  arguments as BeautyProductModelResponse,
+            ),
           ),
         );
       case Routes.paymentScreen:
