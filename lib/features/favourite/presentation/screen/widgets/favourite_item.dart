@@ -1,8 +1,8 @@
+import 'package:beauty_ecommerce/core/widgets/custom_image_network.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/helper/app_images.dart';
 import '../../../../../core/theme/app_text_style.dart';
 import '../../../../../core/theme/font_family_helper.dart';
 
@@ -16,22 +16,7 @@ class FavouriteItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
-          child: Image.network(
-            beautyProductModelResponse.imageLink ??
-            AppImages.makeupFake,
-            width: 120.w,
-            height: 120.h,
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) {
-              // Display a default image in case of an error
-              return Image.network(
-                AppImages.makeupFake,
-                width: 120.w,
-                height: 120.h,
-                fit: BoxFit.cover,
-              );
-            },
-          ),
+          child: CustomImageNetwork(imagePath: beautyProductModelResponse.imageLink),
         ),
         SizedBox(
           width: 15.w,

@@ -12,7 +12,7 @@ class FavouriteListViewBlocBuilder extends StatelessWidget {
     var homeCubit = HomeCubit.get(context);
     return BlocBuilder<HomeCubit , HomeState>(
         builder: (context , state){
-          return FavouriteItemsListView(beautyList: homeCubit.favProduct);
+          return FavouriteItemsListView(beautyList: homeCubit.favoriteProduct.toList());
         }
     );
   }

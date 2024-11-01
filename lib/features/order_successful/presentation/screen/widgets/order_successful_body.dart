@@ -13,54 +13,58 @@ class OrderSuccessfulBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Lottie.asset(
-            AppLottie.success,
-          ),
-          SizedBox(
-            height: 26.h,
-          ),
-          Text(
-            'Congratulation!',
-            style: AppTextStyle.font32PinkSemiBold
-                .copyWith(fontFamily: FontFamilyHelper.leagueSpartanFont),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            'Your order has been successfully placed',
-            textAlign: TextAlign.center,
-            style: AppTextStyle.font24BlackMedium
-                .copyWith(fontFamily: FontFamilyHelper.poppinsFont),
-          ),
-          SizedBox(
-            height: 25.h,
-          ),
-          GestureDetector(
-            onTap: (){
-              Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: AppColor.cherryBlossomPink),
-              padding: EdgeInsets.symmetric(
-                horizontal: 29.w,
-                vertical: 26.h,
-              ),
-              child: Text(
-                'Continue shopping',
-                style: AppTextStyle.font20BlackSemiBold.copyWith(
-                  fontFamily: FontFamilyHelper.leagueSpartanFont,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Lottie.asset(
+              AppLottie.success,
+              width: MediaQuery.of(context).size.width *0.5,
+              height: MediaQuery.of(context).size.height *0.5,
+            ),
+            SizedBox(
+              height: 26.h,
+            ),
+            Text(
+              'Congratulation!',
+              style: AppTextStyle.font32PinkSemiBold
+                  .copyWith(fontFamily: FontFamilyHelper.leagueSpartanFont),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Your order has been successfully placed',
+              textAlign: TextAlign.center,
+              style: AppTextStyle.font24BlackMedium
+                  .copyWith(fontFamily: FontFamilyHelper.poppinsFont),
+            ),
+            SizedBox(
+              height: 25.h,
+            ),
+            GestureDetector(
+              onTap: (){
+                Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: AppColor.cherryBlossomPink),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 29.w,
+                  vertical: 26.h,
+                ),
+                child: Text(
+                  'Continue shopping',
+                  style: AppTextStyle.font20BlackSemiBold.copyWith(
+                    fontFamily: FontFamilyHelper.leagueSpartanFont,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

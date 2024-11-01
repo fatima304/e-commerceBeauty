@@ -4,6 +4,7 @@ import 'package:beauty_ecommerce/core/widgets/custom_elevated_button.dart';
 import 'package:beauty_ecommerce/features/details/presentation/screen/widgets/color_palette.dart';
 import 'package:beauty_ecommerce/features/details/presentation/screen/widgets/product_details.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
+import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,6 +20,7 @@ class DetailsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var homeCubit = HomeCubit.get(context);
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.5,
@@ -53,7 +55,8 @@ class DetailsCard extends StatelessWidget {
                 ),
                 CustomElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(Routes.cartBody);
+                    homeCubit.addToCart(beautyProductModelResponse);
+                    Navigator.of(context).pushNamed(Routes.cartScreen);
                   },
                   width: 0.w,
                   height: 0.h,

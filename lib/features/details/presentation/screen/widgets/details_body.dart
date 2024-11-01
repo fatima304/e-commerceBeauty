@@ -1,5 +1,5 @@
 import 'package:beauty_ecommerce/core/theme/app_text_style.dart';
-import 'package:beauty_ecommerce/features/details/presentation/screen/widgets/show_image_network.dart';
+import 'package:beauty_ecommerce/core/widgets/custom_image_network.dart';
 import 'package:beauty_ecommerce/features/details/presentation/screen/widgets/top_bar_details.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,7 @@ class DetailsBody extends StatelessWidget {
                 style: AppTextStyle.font20BlackSemiBold
               ),
               TopBarDetails(),
-              ShowImageNetwork(beautyProductModelResponse),
+              CustomImageNetwork(imagePath: beautyProductModelResponse.imageLink,),
               DetailsCard(beautyProductModelResponse: beautyProductModelResponse,),
             ],
           ),
