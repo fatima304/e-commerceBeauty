@@ -16,7 +16,7 @@ class ContainerBeautyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var homeCubit = HomeCubit.get(context);
-    bool isFav = homeCubit.favProduct.contains(beautyProductModel);
+    bool isFav =homeCubit.isFavorite(beautyProductModel);
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.h),
       child: Container(

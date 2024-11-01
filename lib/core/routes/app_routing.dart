@@ -10,6 +10,7 @@ import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_bo
 import 'package:beauty_ecommerce/features/details/presentation/screen/ui/details_screen.dart';
 import 'package:beauty_ecommerce/features/order_successful/presentation/screen/ui/order_successful_screen.dart';
 import 'package:beauty_ecommerce/features/payment/presentation/screen/ui/payment_screen.dart';
+import 'package:beauty_ecommerce/features/register/presentation/screen/ui/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/on_boarding/presentation/screen/ui/on_boarding_screen.dart';
@@ -37,7 +38,7 @@ class AppRouting {
         );
       case Routes.registerScreen:
         return MaterialPageRoute(
-          builder: (_) => LoginScreen(),
+          builder: (_) => RegisterScreen(),
         );
       case Routes.orderSuccessfulScreen:
         return MaterialPageRoute(
@@ -54,7 +55,7 @@ class AppRouting {
         return MaterialPageRoute(
           builder: (_) => HomeBody(),
         );
-      case Routes.cartBody:
+      case Routes.cartScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider.value(
             value: getIt<HomeCubit>(),

@@ -1,3 +1,4 @@
+import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/cart_body.dart';
 import 'package:beauty_ecommerce/features/favourite/presentation/screen/widgets/favourite_body.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/data/repo/home_repo.dart';
@@ -6,7 +7,6 @@ import 'package:beauty_ecommerce/features/profile/presentation/screen/ui/profile
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../cart/presentation/screen/ui/cart_screen.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -66,16 +66,13 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   /// change between index in bottom navigation bar
-List<Widget> screens =[
+  List<Widget> screens =[
   HomeBody(),
-CartScreen(),
+CartBody(),
   FavouriteBody(),
   ProfileScreen(),
 ];
-
-
   int screenIndex = 0 ;
-
   void changScreen(int index){
     screenIndex = index;
     if (index == 0) {
@@ -88,18 +85,18 @@ CartScreen(),
   }
 
 
-  /// make item favourite
-  bool isFav = false ;
-  List<BeautyProductModelResponse> favProduct =[] ;
-  void changeFav(BeautyProductModelResponse product){
-    isFav = !isFav;
-   if(isFav){
-     favProduct.add(product);
-   }else{
-     favProduct.remove(product);
-   }
+   /// make item favourite
+   Set<BeautyProductModelResponse> favoriteProduct={};
+  void changeFav(BeautyProductModelResponse product) {
+    if (favoriteProduct.contains(product)) {
+      favoriteProduct.remove(product);
+    } else {
+      favoriteProduct.add(product);
+    }
     emit(HomeBeautyProductSuccess(beautyProductList: beautyProduct));
-
+  }
+  bool isFavorite(BeautyProductModelResponse product) {
+    return favoriteProduct.contains(product);
   }
 
   /// add item from details in cart screen
